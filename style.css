@@ -19,12 +19,21 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
+  flex-wrap: wrap;
 }
 
 .logo {
+  display: flex;
+  align-items: center;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: black;
+  gap: 10px;
+}
+
+.logo-img {
+  height: 50px;
+  filter: drop-shadow(0 0 4px #00E28A);
 }
 
 nav ul {
