@@ -57,9 +57,7 @@
 
     /* Header */
     header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
+      position: sticky; top: 0; z-index: 50;
       background: rgba(10,14,26,.6);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(230,240,255,.08);
@@ -108,6 +106,9 @@
       font-size: .82rem; color: #CEE0FF;
     }
 
+    ul.features { list-style: none; margin: 12px 0 0; padding: 0; }
+    ul.features li { margin-bottom: 6px; }
+
     /* Sections */
     section { padding: 56px 0; border-top: 1px solid rgba(230,240,255,.06); }
     h2 { font-size: 28px; margin-bottom: 18px; }
@@ -122,6 +123,13 @@
     .card h3 { margin-bottom: 6px; }
     .muted { color: var(--muted); }
 
+    /* Table */
+    table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+    th, td { padding: 14px; border: 1px solid rgba(230,240,255,.1); text-align: left; }
+    th { background: #0E1630; color: #DDE8FF; }
+    .col-ok { color: var(--ok); font-weight: 700; }
+    .col-no { color: var(--danger); font-weight: 800; }
+
     /* Footer */
     footer { padding: 60px 0 80px; color: #B7C9F1; }
     .foot { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: center; }
@@ -135,6 +143,7 @@
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <div class="container nav">
       <div class="logo">
@@ -159,57 +168,135 @@
           <div>
             <span class="badge">Sydney-based • Data stays in AU • SME-first</span>
             <h1><span class="glow">The Butterfly Effect:</span> Your AI/BI Enabler — Enterprise-Grade Solutions at SME-Friendly Prices.</h1>
-            <p class="sub">Get enterprise-quality dashboards, automation and AI copilots — without hiring an in-house team.</p>
+            <p class="sub">Get enterprise-quality dashboards, automation and AI copilots — without hiring an in-house team. Flexible subscriptions, rapid delivery, and outcomes tied to your KPIs.</p>
             <div class="cta">
-              <a class="btn" href="#contact" role="button">Start with a Free Assessment</a>
-              <a class="btn secondary" href="#compare" role="button">See Why We Beat Outsourcing</a>
+              <a class="btn" href="#contact">Start with a Free Assessment</a>
+              <a class="btn secondary" href="#compare">See Why We Beat Outsourcing</a>
             </div>
           </div>
           <div class="hero-card">
             <div class="pill">What you get in 30 days</div>
             <ul class="features">
-              <li><strong>Live KPI dashboard</strong></li>
-              <li><strong>Automated data pipeline</strong></li>
-              <li><strong>Quick-win AI</strong></li>
-              <li><strong>Compliance & privacy review</strong></li>
+              <li>Live KPI dashboard</li>
+              <li>Automated data pipeline</li>
+              <li>Quick-win AI (forecasting, anomaly alerts, chatbot)</li>
+              <li>Compliance & privacy review — data stays in AU</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Value -->
+    <!-- Value Proposition -->
     <section id="value">
       <div class="container">
         <h2>Why Butterfly?</h2>
         <div class="grid cols-3">
           <div class="card"><h3>Outcome-Driven</h3><p class="muted">We deliver measurable improvements, not just dashboards.</p></div>
-          <div class="card"><h3>Flexible by Design</h3><p class="muted">Scale up or down — no in-house overhead.</p></div>
-          <div class="card"><h3>Local & Compliant</h3><p class="muted">Sydney-based, AU data residency, Privacy Act aligned.</p></div>
+          <div class="card"><h3>Flexible by Design</h3><p class="muted">Scale services up/down without in-house overhead.</p></div>
+          <div class="card"><h3>Local & Compliant</h3><p class="muted">Sydney-based delivery, AU data residency, Privacy Act 1988 aligned.</p></div>
+          <div class="card"><h3>BI + AI Together</h3><p class="muted">Dashboards, automation, and AI copilots combined.</p></div>
+          <div class="card"><h3>Industry Templates</h3><p class="muted">Retail, aged-care, logistics, finance — value in weeks.</p></div>
+          <div class="card"><h3>Multi-Cloud Neutral</h3><p class="muted">Fabric, Snowflake, BigQuery, Supabase — whatever fits your budget.</p></div>
         </div>
       </div>
     </section>
-  </main>
 
-  <footer>
-    <div class="container foot">
-      <div class="logo">
-        <img src="https://raw.githubusercontent.com/butterfly-data/butterfly_website/main/blue%20logo%20trans%20bg%20compressed.png" alt="Butterfly Logo" />
-        <span>Butterfly Data Consulting</span>
+    <!-- Packages -->
+    <section id="packages">
+      <div class="container">
+        <h2>Packages — Simple, Transparent, SME-Friendly</h2>
+        <div class="grid cols-3">
+          <div class="card">
+            <h3>Starter — BI-as-a-Service</h3>
+            <p>AU$2,000–4,000 / month</p>
+            <ul class="features">
+              <li>Core KPI dashboards (1–3 domains)</li>
+              <li>Automated refresh & data quality checks</li>
+              <li>Email/Slack alerts</li>
+              <li>Monthly review & backlog grooming</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Growth — Analytics & AI-as-a-Service</h3>
+            <p>AU$5,000–10,000 / month</p>
+            <ul class="features">
+              <li>Predictive models (forecasting, anomalies)</li>
+              <li>AI copilots/agents</li>
+              <li>Workflow automation</li>
+              <li>Quarterly strategy & roadmap</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Scale — Custom AI & Advisory</h3>
+            <p>AU$15,000+ / month or fixed</p>
+            <ul class="features">
+              <li>Bespoke AI (RAG, NLP, speech-to-text)</li>
+              <li>Embedded analytics in your apps</li>
+              <li>Governance & compliance uplift</li>
+              <li>Executive enablement & training</li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div>© <span id="y"></span> Butterfly Data Consulting · Sydney, Australia</div>
-      <div style="display:flex;gap:14px;flex-wrap:wrap">
-        <a href="#value">Value</a>
-        <a href="#packages">Packages</a>
-        <a href="#compare">Compare</a>
-        <a href="#usecases">Use Cases</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </footer>
+    </section>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+    <!-- Compare -->
+    <section id="compare">
+      <div class="container">
+        <h2>Why We Beat Overseas Outsourcing</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Criteria</th>
+              <th>Overseas Outsourcing</th>
+              <th>Big 4 / Large Firms</th>
+              <th>Butterfly</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Price Predictability</td><td>Scope creep risk <span class="col-no">✗</span></td><td>High rates <span class="col-no">✗</span></td><td>Transparent <span class="col-ok">✓</span></td></tr>
+            <tr><td>Speed & Timezone</td><td>Timezone lag <span class="col-no">✗</span></td><td>Slow <span class="col-no">✗</span></td><td>Local, agile <span class="col-ok">✓</span></td></tr>
+            <tr><td>Compliance</td><td>Data may leave AU <span class="col-no">✗</span></td><td>Strong but costly</td><td>AU residency <span class="col-ok">✓</span></td></tr>
+            <tr><td>Business Context</td><td>Generic <span class="col-no">✗</span></td><td>Good but expensive</td><td>SME-specific <span class="col-ok">✓</span></td></tr>
+            <tr><td>AI + BI Integration</td><td>Often BI only <span class="col-no">✗</span></td><td>Premium only</td><td>AI copilots included <span class="col-ok">✓</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section id="usecases">
+      <div class="container">
+        <h2>Plug-and-Play Use Cases</h2>
+        <div class="grid cols-3">
+          <div class="card"><h3>Retail</h3><p class="muted">Demand forecasting, promo ROI, stock alerts.</p></div>
+          <div class="card"><h3>Aged-Care</h3><p class="muted">Compliance dashboards, AI transcription.</p></div>
+          <div class="card"><h3>Logistics</h3><p class="muted">OTIF, route efficiency, predictive delays.</p></div>
+          <div class="card"><h3>Services</h3><p class="muted">Utilisation, revenue forecasts, AI assistants.</p></div>
+          <div class="card"><h3>Manufacturing</h3><p class="muted">Yield, downtime prediction, quality analytics.</p></div>
+          <div class="card"><h3>Finance & Ops</h3><p class="muted">Cash flow forecasts, invoice automation.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust -->
+    <section id="trust">
+      <div class="container">
+        <h2>Trust, Security & Governance</h2>
+        <div class="grid cols-3">
+          <div class="card"><h3>Data Residency</h3><p class="muted">Your data stays in AU regions.</p></div>
+          <div class="card"><h3>Privacy by Design</h3><p class="muted">Privacy Act 1988 aligned, audit logging.</p></div>
+          <div class="card"><h3>Right-Sized Controls</h3><p class="muted">Governance that fits SME budgets.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <div class="grid cols-2">
+          <div>
+            <h2>Let’s enable AI/BI — on your terms</h2>
+            <p class="muted">Tell us your top 3 metrics. We’ll propose a 30-day plan with fixed outcomes.</p>
+            <div style="margin-top:
