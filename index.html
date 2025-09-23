@@ -3,24 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Butterfly Data Consulting — AI/BI Enabler for SMEs</title>
-  <meta name="description" content="Butterfly Data Consulting — The AI/BI Enabler for SMEs: enterprise-grade insights and automation without the enterprise price tag." />
+  <title>Butterfly Data Consulting | AI/BI Enabler for SMEs</title>
+  <meta name="description" content="Sydney-based AI/BI consulting for SMEs — enterprise-grade dashboards, AI copilots, and automation at SME-friendly prices. Data stays in Australia." />
   
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png">
-
+  <link rel="icon" type="image/png" href="favicon.png" />
+  
   <!-- Open Graph / Social -->
   <meta property="og:title" content="Butterfly Data Consulting — AI/BI Enabler for SMEs" />
-  <meta property="og:description" content="Enterprise-grade BI & AI solutions tailored for SMEs. Local, flexible, SME-friendly pricing." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/butterfly-data/butterfly_website/blob/main/blue%20logo%20trans%20bg%20compressed.png" />
+  <meta property="og:description" content="Enterprise-grade BI & AI solutions tailored for SMEs. Sydney-based, flexible, SME-friendly pricing." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/butterfly-data/butterfly_website/main/blue%20logo%20trans%20bg%20compressed.png" />
   <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
 
+  <!-- LocalBusiness Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Butterfly Data Consulting",
+    "image": "https://raw.githubusercontent.com/butterfly-data/butterfly_website/main/blue%20logo%20trans%20bg%20compressed.png",
+    "description": "Sydney-based AI/BI consulting for SMEs. We enable enterprise-grade insights without enterprise cost.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sydney",
+      "addressCountry": "Australia"
+    },
+    "url": "https://butterfly-data.github.io/butterfly_website/"
+  }
+  </script>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    :root{
+    :root {
       --bg: #0A0E1A;
       --bg-elev: #10172A;
       --text: #E6F0FF;
@@ -31,127 +50,106 @@
       --danger: #FF4D6D;
       --ok: #3EE07C;
       --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius-xl: 22px;
       --radius-lg: 16px;
-      --radius-md: 12px;
-      --radius-sm: 10px;
       --maxw: 1200px;
     }
-    *{box-sizing:border-box}
-    html,body{
-      margin:0;
-      padding:0;
-      background:radial-gradient(1200px 700px at 80% -10%, rgba(77,120,255,.15), transparent 60%),
-                 radial-gradient(900px 600px at 10% 10%, rgba(1,180,215,.18), transparent 55%),
-                 linear-gradient(180deg, #0A0E1A 0%, #0A0E1A 100%);
-      color:var(--text);
-      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background-color:#0A0E1A; /* fallback */
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0A0E1A, #0E1630);
+      background-attachment: fixed;
+      color: var(--text);
+      line-height: 1.6;
     }
-    a{color:var(--brand-2);text-decoration:none}
-    a:hover{opacity:.9}
-    .container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-    header{
-      position:sticky;top:0;z-index:50;
-      background:rgba(10,14,26,.6);
-      backdrop-filter: blur(10px);
-      border-bottom:1px solid rgba(230,240,255,.08)
+    a { color: var(--brand-2); text-decoration: none; }
+    a:hover { opacity: .9; }
+
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(10,14,26,.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(230,240,255,.1);
     }
-    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-    .logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.3px}
-    .logo img{
-      height:40px;
-      filter: drop-shadow(0 0 6px rgba(77,120,255,0.6));
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; }
+    .logo img { height: 40px; filter: drop-shadow(0 0 8px rgba(77,120,255,.7)); }
+
+    nav a { margin: 0 12px; font-weight: 500; }
+    .btn {
+      display: inline-flex; align-items: center;
+      padding: 12px 20px; border-radius: 999px;
+      background: linear-gradient(135deg,var(--brand-2),var(--brand-1));
+      color: #041126; font-weight: 700; border: 0;
+      box-shadow: 0 0 12px rgba(77,120,255,.4);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-    nav a{color:var(--text);opacity:.9;margin:0 10px;font-weight:500;font-size:.96rem}
-    .btn{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:12px 18px;border-radius:999px;
-      background:linear-gradient(135deg,var(--brand-2),var(--brand-1));
-      color:#041126;font-weight:700;
-      box-shadow:var(--shadow);border:0;
-      cursor:pointer
-    }
-    .btn.secondary{
-      background:transparent;
-      border:1px solid rgba(230,240,255,.14);
-      color:var(--text);font-weight:600
-    }
-    .btn:hover{transform:translateY(-1px)}
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 0 18px rgba(0,226,138,.6); }
+    .btn.secondary { background: transparent; border: 1px solid rgba(230,240,255,.2); color: var(--text); }
 
     /* Hero */
-    .hero{padding:72px 0 32px}
-    .hero-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
-    .badge{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:8px 12px;border:1px solid rgba(230,240,255,.14);
-      border-radius:999px;background:rgba(255,255,255,.03);
-      color:var(--muted);font-weight:600;font-size:.86rem
+    .hero { padding: 80px 0; }
+    .hero-wrap { display: grid; grid-template-columns: 1.2fr .8fr; gap: 32px; align-items: center; }
+    .glow { background: linear-gradient(135deg,var(--brand-2),var(--brand-1));
+      -webkit-background-clip: text; background-clip: text;
+      color: transparent; text-shadow: 0 0 18px rgba(77,120,255,.5); }
+    h1 { font-size: 50px; font-weight: 900; margin-bottom: 12px; }
+    .sub { font-size: 18px; color: var(--muted); max-width: 720px; margin-bottom: 20px; }
+    .hero-card {
+      background: rgba(15,21,40,.8);
+      border: 1px solid rgba(77,120,255,.4);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: 0 0 25px rgba(77,120,255,.4);
     }
-    .glow{background:linear-gradient(135deg,var(--brand-2),var(--brand-1));
-      -webkit-background-clip:text;background-clip:text;
-      color:transparent;text-shadow:0 0 18px rgba(77,120,255,.45)}
-    h1{font-size:48px;line-height:1.06;margin:16px 0 10px;font-weight:900}
-    .sub{font-size:18px;color:var(--muted);max-width:720px}
-    .cta{display:flex;gap:14px;margin-top:20px;flex-wrap:wrap}
-    .hero-card{
-      border:1px solid rgba(230,240,255,.1);
-      background:linear-gradient(180deg,#0F1528, #0C1324);
-      border-radius:var(--radius-xl);padding:22px;box-shadow:var(--shadow)
+    .hero-card ul { list-style: none; padding: 0; margin-top: 12px; }
+    .hero-card li { margin-bottom: 10px; }
+
+    /* Section cards */
+    .grid { display: grid; gap: 20px; }
+    .grid.cols-3 { grid-template-columns: repeat(3,1fr); }
+    .grid.cols-2 { grid-template-columns: repeat(2,1fr); }
+    .card {
+      background: rgba(16,23,42,.85);
+      border: 1px solid rgba(0,226,138,.3);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      transition: transform .2s, box-shadow .2s;
     }
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;
-      border-radius:999px;background:rgba(77,120,255,.12);
-      border:1px solid rgba(77,120,255,.25);font-size:.82rem;color:#CEE0FF}
-
-    /* Sections */
-    section{padding:56px 0;border-top:1px solid rgba(230,240,255,.06)}
-    h2{font-size:28px;margin:0 0 18px}
-    .grid{display:grid;gap:18px}
-    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
-    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
-    .card{border:1px solid rgba(230,240,255,.08);
-      background:linear-gradient(180deg,#0F1528,#0C1324);
-      border-radius:var(--radius-lg);padding:20px}
-    .card h3{margin:0 0 6px}
-    .muted{color:var(--muted)}
-
-    /* Pricing */
-    .price{font-size:36px;font-weight:900}
-    .price small{font-size:14px;color:var(--muted);font-weight:600}
-    ul.features{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:8px}
-    ul.features li{display:flex;gap:10px;align-items:flex-start}
-    .tick{width:18px;height:18px;border-radius:4px;
-      background:linear-gradient(135deg,var(--brand-1),var(--brand-2));margin-top:2px}
-
-    /* Table */
-    table{width:100%;border-collapse:separate;border-spacing:0;
-      border:1px solid rgba(230,240,255,.1);
-      border-radius:var(--radius-md);overflow:hidden}
-    th,td{padding:14px;border-bottom:1px solid rgba(230,240,255,.06);text-align:left}
-    th{background:#0E1630;color:#DDE8FF}
-    tr:last-child td{border-bottom:none}
-    .col-ok{color:var(--ok);font-weight:700}
-    .col-no{color:var(--danger);font-weight:800}
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 20px rgba(0,226,138,.5);
+    }
+    h2 { font-size: 28px; margin-bottom: 18px; }
 
     /* Footer */
-    footer{padding:60px 0 80px;color:#B7C9F1}
-    .foot{display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:center}
+    footer {
+      background: #0E1630;
+      padding: 60px 0;
+      color: #B7C9F1;
+    }
+    .foot-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 30px; }
+    .foot-col h3 { margin-bottom: 12px; font-size: 16px; color: #E6F0FF; }
+    .foot-col a { display: block; margin: 6px 0; color: #9DB3D9; }
+    .foot-col a:hover { color: var(--brand-1); }
+    .foot-bottom { margin-top: 30px; text-align: center; font-size: 14px; color: #9DB3D9; }
 
     /* Responsive */
-    @media (max-width: 960px){
-      .hero-wrap{grid-template-columns:1fr}
-      h1{font-size:40px}
-      .grid.cols-3{grid-template-columns:1fr}
-      .grid.cols-2{grid-template-columns:1fr}
+    @media(max-width: 960px){
+      .hero-wrap{ grid-template-columns:1fr; }
+      .grid.cols-3, .grid.cols-2 { grid-template-columns:1fr; }
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <div class="container nav">
       <div class="logo">
-        <img src="https://raw.githubusercontent.com/butterfly-data/butterfly_website/blob/main/blue%20logo%20trans%20bg%20compressed.png" 
-             alt="Butterfly Logo" loading="lazy">
+        <img src="https://raw.githubusercontent.com/butterfly-data/butterfly_website/main/blue%20logo%20trans%20bg%20compressed.png" alt="Butterfly Logo">
         <span>Butterfly Data Consulting</span>
       </div>
       <nav>
@@ -159,33 +157,131 @@
         <a href="#packages">Packages</a>
         <a href="#compare">Compare</a>
         <a href="#usecases">Use Cases</a>
-        <a href="#contact" class="btn" role="button" aria-label="Book a Call" style="padding:8px 14px">Book a Call</a>
+        <a href="#contact" class="btn">Book a Call</a>
       </nav>
     </div>
   </header>
 
-  <!-- Main content here (unchanged from your version) -->
-
-  <footer>
-    <div class="container foot">
-      <div class="logo">
-        <img src="https://raw.githubusercontent.com/butterfly-data/butterfly_website/blob/main/blue%20logo%20trans%20bg%20compressed.png" 
-             alt="Butterfly Logo" loading="lazy">
-        <span>Butterfly Data Consulting</span>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-wrap">
+      <div>
+        <h1><span class="glow">The Butterfly Effect:</span> AI/BI Enabler for SMEs</h1>
+        <p class="sub">Enterprise-grade dashboards, automation, and AI copilots — without the enterprise cost. Flexible, local, and outcome-driven.</p>
+        <div>
+          <a class="btn" href="#contact">Start Free Assessment</a>
+          <a class="btn secondary" href="#compare">See Why We Beat Outsourcing</a>
+        </div>
       </div>
-      <div>© <span id="y"></span> Butterfly Data Consulting · Sydney, Australia</div>
-      <div style="display:flex;gap:14px;flex-wrap:wrap">
+      <div class="hero-card">
+        <h3>In Your First 30 Days:</h3>
+        <ul>
+          <li>✔ Live KPI dashboard</li>
+          <li>✔ Automated data pipeline</li>
+          <li>✔ Quick-win AI (forecasting/chatbot)</li>
+          <li>✔ AU-only data compliance review</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value -->
+  <section id="value">
+    <div class="container">
+      <h2>Why Choose Butterfly?</h2>
+      <div class="grid cols-3">
+        <div class="card"><h3>Outcome-Driven</h3><p>We deliver measurable improvements, not just dashboards.</p></div>
+        <div class="card"><h3>Local & Compliant</h3><p>Sydney-based, AU data residency, Privacy Act aligned.</p></div>
+        <div class="card"><h3>Flexible</h3><p>Scale services up or down without in-house overhead.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Packages -->
+  <section id="packages">
+    <div class="container">
+      <h2>Packages — Simple & Transparent</h2>
+      <div class="grid cols-3">
+        <div class="card"><h3>Starter</h3><p>AU$2–4k / month</p><p>KPI dashboards, refresh automation, alerts.</p></div>
+        <div class="card"><h3>Growth</h3><p>AU$5–10k / month</p><p>Predictive models, AI copilots, workflow automation.</p></div>
+        <div class="card"><h3>Scale</h3><p>AU$15k+ / month</p><p>Bespoke AI, governance uplift, executive training.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compare -->
+  <section id="compare">
+    <div class="container">
+      <h2>Why We Beat Overseas Outsourcing</h2>
+      <table>
+        <thead><tr><th>Criteria</th><th>Outsourcing</th><th>Big 4</th><th>Butterfly</th></tr></thead>
+        <tbody>
+          <tr><td>Price Predictability</td><td>✗</td><td>✗</td><td class="col-ok">✓</td></tr>
+          <tr><td>Speed & Timezone</td><td>✗</td><td>✗</td><td class="col-ok">✓</td></tr>
+          <tr><td>Data Residency</td><td>✗</td><td>~</td><td class="col-ok">✓</td></tr>
+          <tr><td>AI + BI Integration</td><td>✗</td><td>Premium</td><td class="col-ok">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section id="usecases">
+    <div class="container">
+      <h2>Plug & Play Use Cases</h2>
+      <div class="grid cols-3">
+        <div class="card"><h3>Retail</h3><p>Demand forecasting, promo ROI.</p></div>
+        <div class="card"><h3>Aged-Care</h3><p>Compliance dashboards, AI transcription.</p></div>
+        <div class="card"><h3>Logistics</h3><p>OTIF, route efficiency, predictive delays.</p></div>
+        <div class="card"><h3>Services</h3><p>Utilisation, forecasts, AI assistants.</p></div>
+        <div class="card"><h3>Manufacturing</h3><p>Yield, downtime prediction.</p></div>
+        <div class="card"><h3>Finance</h3><p>Cash-flow, anomaly alerts.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container grid cols-2">
+      <div>
+        <h2>Let’s Enable AI/BI on Your Terms</h2>
+        <p class="muted">Tell us your top 3 priorities. We'll send a 30-day plan with fixed outcomes.</p>
+        <a class="btn" href="mailto:hello@butterflydata.consulting">Email Us</a>
+      </div>
+      <div class="card">
+        <form onsubmit="event.preventDefault(); alert('Thanks! We will respond within 1 business day.'); this.reset();">
+          <label>Name</label><input type="text" required>
+          <label>Email</label><input type="email" required>
+          <label>What do you want to improve?</label><textarea rows="3" required></textarea>
+          <button class="btn" type="submit">Get 30-Day Plan</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container foot-grid">
+      <div class="foot-col">
+        <h3>About</h3>
+        <p>Butterfly Data Consulting helps SMEs harness enterprise-grade BI & AI — without enterprise budgets.</p>
+      </div>
+      <div class="foot-col">
+        <h3>Quick Links</h3>
         <a href="#value">Value</a>
         <a href="#packages">Packages</a>
         <a href="#compare">Compare</a>
         <a href="#usecases">Use Cases</a>
-        <a href="#contact">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h3>Contact</h3>
+        <p>Email: hello@butterflydata.consulting</p>
+        <a class="btn" href="#contact">Book a Call</a>
       </div>
     </div>
+    <div class="foot-bottom">© <span id="y"></span> Butterfly Data Consulting · Sydney, Australia</div>
   </footer>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
