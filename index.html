@@ -1,69 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Butterfly Data Consulting</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Butterfly Data Consulting — AI/BI Enabler for SMEs</title>
+  <meta name="description" content="Butterfly Data Consulting — The AI/BI Enabler for SMEs: enterprise‑grade insights and automation without the enterprise price tag." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0A0E1A;           /* Deep navy background */
+      --bg-elev: #10172A;      /* Card background */
+      --text: #E6F0FF;         /* Primary text */
+      --muted: #9DB3D9;        /* Muted text */
+      --brand-1: #00E28A;      /* Neon green */
+      --brand-2: #4D78FF;      /* Electric blue */
+      --accent: #01B4D7;       /* Teal-blue accent */
+      --danger: #FF4D6D;       /* Accent for X marks */
+      --ok: #3EE07C;           /* Accent for ticks */
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius-xl: 22px;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 10px;
+      --maxw: 1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:radial-gradient(1200px 700px at 80% -10%, rgba(77,120,255,.15), transparent 60%),
+                                                radial-gradient(900px 600px at 10% 10%, rgba(1,180,215,.18), transparent 55%),
+                                                linear-gradient(180deg, #0A0E1A 0%, #0A0E1A 100%);
+               color:var(--text);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+    a{color:var(--brand-2);text-decoration:none}
+    a:hover{opacity:.9}
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+    header{position:sticky;top:0;z-index:50;background:rgba(10,14,26,.6);backdrop-filter: blur(10px);border-bottom:1px solid rgba(230,240,255,.08)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.3px}
+    .logo-dot{width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,var(--brand-1),var(--brand-2));box-shadow:0 0 18px rgba(77,120,255,.7)}
+    nav a{color:var(--text);opacity:.9;margin:0 10px;font-weight:500;font-size:.96rem}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;background:linear-gradient(135deg,var(--brand-2),var(--brand-1));color:#041126;font-weight:700;box-shadow:var(--shadow);border:0}
+    .btn.secondary{background:transparent;border:1px solid rgba(230,240,255,.14);color:var(--text);font-weight:600}
+    .btn:hover{transform:translateY(-1px)}
 
+    /* Hero */
+    .hero{padding:72px 0 32px}
+    .hero-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+    .badge{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid rgba(230,240,255,.14);border-radius:999px;background:rgba(255,255,255,.03);color:var(--muted);font-weight:600;font-size:.86rem}
+    .glow{background:linear-gradient(135deg,var(--brand-2),var(--brand-1));-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 18px rgba(77,120,255,.45)}
+    h1{font-size:48px;line-height:1.06;margin:16px 0 10px;font-weight:900}
+    .sub{font-size:18px;color:var(--muted);max-width:720px}
+    .cta{display:flex;gap:14px;margin-top:20px;flex-wrap:wrap}
+    .hero-card{border:1px solid rgba(230,240,255,.1);background:linear-gradient(180deg,#0F1528, #0C1324);border-radius:var(--radius-xl);padding:22px;box-shadow:var(--shadow)}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:rgba(77,120,255,.12);border:1px solid rgba(77,120,255,.25);font-size:.82rem;color:#CEE0FF}
+
+    /* Sections */
+    section{padding:56px 0;border-top:1px solid rgba(230,240,255,.06)}
+    h2{font-size:28px;margin:0 0 18px}
+    .grid{display:grid;gap:18px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    .card{border:1px solid rgba(230,240,255,.08);background:linear-gradient(180deg,#0F1528,#0C1324);border-radius:var(--radius-lg);padding:20px}
+    .card h3{margin:0 0 6px}
+    .muted{color:var(--muted)}
+    .check{color:var(--ok);font-weight:700}
+    .cross{color:var(--danger);font-weight:800}
+
+    /* Pricing */
+    .price{font-size:36px;font-weight:900}
+    .price small{font-size:14px;color:var(--muted);font-weight:600}
+    ul.features{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:8px}
+    ul.features li{display:flex;gap:10px;align-items:flex-start}
+    .tick{width:18px;height:18px;border-radius:4px;background:linear-gradient(135deg,var(--brand-1),var(--brand-2));margin-top:2px}
+
+    /* Table */
+    table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid rgba(230,240,255,.1);border-radius:var(--radius-md);overflow:hidden}
+    th,td{padding:14px;border-bottom:1px solid rgba(230,240,255,.06);text-align:left}
+    th{background:#0E1630;color:#DDE8FF}
+    tr:last-child td{border-bottom:none}
+    .col-ok{color:var(--ok);font-weight:700}
+    .col-no{color:var(--danger);font-weight:800}
+
+    /* Footer */
+    footer{padding:60px 0 80px;color:#B7C9F1}
+    .foot{display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:center}
+
+    /* Responsive */
+    @media (max-width: 960px){
+      .hero-wrap{grid-template-columns:1fr}
+      h1{font-size:40px}
+      .grid.cols-3{grid-template-columns:1fr}
+      .grid.cols-2{grid-template-columns:1fr}
+    }
+  </style>
+</head>
 <body>
-<header>
-  <div class="logo">
-    <img src="https://raw.githubusercontent.com/butterfly-data/butterfly_website/main/blue%20logo%20trans%20bg%20compressed.png" alt="Butterfly Logo" class="logo-img">
-    <span>Butterfly Data Consulting</span>
-  </div>
-  <nav>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Enquire</a></li>
-    </ul>
-  </nav>
-</header>
+  <header>
+    <div class="container nav">
+      <div class="logo"><span class="logo-dot"></span><span>Butterfly Data Consulting</span></div>
+      <nav>
+        <a href="#value">Value</a>
+        <a href="#packages">Packages</a>
+        <a href="#compare">Compare</a>
+        <a href="#usecases">Use Cases</a>
+        <a href="#contact" class="btn" style="padding:8px 14px">Book a Call</a>
+      </nav>
+    </div>
+  </header>
 
   <main>
-    <section id="home">
-      <h1>The Butterfly Effect</h1>
-      <p>Your AI/BI Enabler — Enterprise-Grade Solutions at SME-Friendly Prices.</p>
-    </section>
-
-    <section id="services">
-      <h2>Our Services</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>AI Agents</h3>
-          <p>Conversational AI, RAG pipelines, & custom LLM deployments</p>
-        </div>
-        <div class="card">
-          <h3>Data Strategy</h3>
-          <p>End-to-end data architecture & analytics strategy</p>
-        </div>
-        <div class="card">
-          <h3>Automation</h3>
-          <p>Smart workflows using Supabase, n8n, and cloud functions</p>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-wrap">
+          <div>
+            <span class="badge">Sydney-based • Data stays in AU • SME-first</span>
+            <h1><span class="glow">The Butterfly Effect:</span> Your AI/BI Enabler — Enterprise‑Grade Solutions at SME‑Friendly Prices.</h1>
+            <p class="sub">Get enterprise-quality dashboards, automation and AI copilots — without hiring an in‑house team. Flexible subscriptions, rapid delivery, and outcomes tied to your KPIs.</p>
+            <div class="cta">
+              <a class="btn" href="#contact">Start with a Free Assessment</a>
+              <a class="btn secondary" href="#compare">See Why We Beat Outsourcing</a>
+            </div>
+          </div>
+          <div class="hero-card">
+            <div class="pill">What you get in 30 days</div>
+            <ul class="features">
+              <li><span class="tick"></span><div><strong>Live KPI dashboard</strong> (Power BI/Tableau/Looker Studio)</div></li>
+              <li><span class="tick"></span><div><strong>Automated data pipeline</strong> (ETL/ELT on Fabric/BigQuery/Supabase)</div></li>
+              <li><span class="tick"></span><div><strong>Quick‑win AI</strong> (forecasting, anomaly alerts, or a mini chatbot)</div></li>
+              <li><span class="tick"></span><div><strong>Compliance & privacy review</strong> — data stays in Australia</div></li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="about">
-      <h2>Who We Are</h2>
-      <p>We're a team of data innovators, engineers, and strategists based in Sydney. From aged care to fintech, we transform data into action.</p>
+    <!-- Value Proposition -->
+    <section id="value">
+      <div class="container">
+        <h2>Why Butterfly?</h2>
+        <div class="grid cols-3">
+          <div class="card">
+            <h3>Outcome‑Driven</h3>
+            <p class="muted">Not just dashboards. We ship measurable improvements: faster decisions, reduced manual work, and higher forecast accuracy.</p>
+          </div>
+          <div class="card">
+            <h3>Flexible by Design</h3>
+            <p class="muted">Scale services up/down with your needs. Retainers, sprints, or one‑offs — without the overhead of an in‑house team.</p>
+          </div>
+          <div class="card">
+            <h3>Local & Compliant</h3>
+            <p class="muted">Sydney‑based delivery with AU data residency. Privacy Act 1988 awareness, audit logging, and sensible governance baked in.</p>
+          </div>
+          <div class="card">
+            <h3>BI + AI Together</h3>
+            <p class="muted">We combine reporting with automation and AI copilots (RAG, NLP, anomaly detection) so your team acts faster.</p>
+          </div>
+          <div class="card">
+            <h3>Industry Templates</h3>
+            <p class="muted">Retail demand, aged‑care compliance, logistics OTIF, professional services utilisation — get value in weeks.</p>
+          </div>
+          <div class="card">
+            <h3>Multi‑Cloud Neutral</h3>
+            <p class="muted">Fabric, Snowflake, BigQuery, Supabase, Flowise, vector DBs — we pick what fits your budget and goals.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
+    <!-- Packages -->
+    <section id="packages">
+      <div class="container">
+        <h2>Packages — Simple, Transparent, SME‑Friendly</h2>
+        <div class="grid cols-3">
+          <div class="card">
+            <h3>Starter — BI‑as‑a‑Service</h3>
+            <div class="price">AU$2,000–4,000 <small>/month</small></div>
+            <ul class="features">
+              <li><span class="tick"></span><div>Core KPI dashboards (1–3 domains)</div></li>
+              <li><span class="tick"></span><div>Automated refresh & data quality checks</div></li>
+              <li><span class="tick"></span><div>Email/Slack alerts</div></li>
+              <li><span class="tick"></span><div>Monthly review & backlog grooming</div></li>
+            </ul>
+          </div>
+          <div class="card" style="border-color: rgba(0,226,138,.5)">
+            <h3>Growth — Analytics & AI‑as‑a‑Service</h3>
+            <div class="price">AU$5,000–10,000 <small>/month</small></div>
+            <ul class="features">
+              <li><span class="tick"></span><div>Predictive models (forecasting, anomalies)</div></li>
+              <li><span class="tick"></span><div>AI copilots/agents (chat, classification, SOPs)</div></li>
+              <li><span class="tick"></span><div>Workflow automation (n8n/Zapier/Flowise)</div></li>
+              <li><span class="tick"></span><div>Quarterly strategy & roadmap</div></li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Scale — Custom AI & Advisory</h3>
+            <div class="price">AU$15,000+ <small>/month or fixed</small></div>
+            <ul class="features">
+              <li><span class="tick"></span><div>Bespoke AI (RAG, NLP, speech‑to‑text)</div></li>
+              <li><span class="tick"></span><div>Embedded analytics in your apps</div></li>
+              <li><span class="tick"></span><div>Governance, security & compliance uplift</div></li>
+              <li><span class="tick"></span><div>Executive enablement & training</div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Competitive Comparison -->
+    <section id="compare">
+      <div class="container">
+        <h2>Why We Beat Overseas Outsourcing</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Criteria</th>
+              <th>Overseas Outsourcing</th>
+              <th>Big 4 / Large Firms</th>
+              <th><span class="glow">Butterfly Data Consulting</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Price Predictability</td>
+              <td>Low hourly; scope creep risk <span class="col-no">✗</span></td>
+              <td>High rates; rigid <span class="col-no">✗</span></td>
+              <td>Tiered, transparent, SME‑friendly <span class="col-ok">✓</span></td>
+            </tr>
+            <tr>
+              <td>Speed & Timezone</td>
+              <td>Timezone lag <span class="col-no">✗</span></td>
+              <td>Slow delivery cycles <span class="col-no">✗</span></td>
+              <td>Local, agile sprints <span class="col-ok">✓</span></td>
+            </tr>
+            <tr>
+              <td>Compliance & Data Residency</td>
+              <td>Varies; data may leave AU <span class="col-no">✗</span></td>
+              <td>Strong but costly <span class="col-ok">~</span></td>
+              <td>AU data residency; Privacy Act aware <span class="col-ok">✓</span></td>
+            </tr>
+            <tr>
+              <td>Business Context</td>
+              <td>Generic, less local nuance <span class="col-no">✗</span></td>
+              <td>Good but expensive <span class="col-ok">~</span></td>
+              <td>SME‑specific templates & KPIs <span class="col-ok">✓</span></td>
+            </tr>
+            <tr>
+              <td>AI + BI Integration</td>
+              <td>Often BI only <span class="col-no">✗</span></td>
+              <td>Yes, premium <span class="col-ok">~</span></td>
+              <td>AI copilots + automation included <span class="col-ok">✓</span></td>
+            </tr>
+            <tr>
+              <td>Relationship</td>
+              <td>Vendor <span class="col-no">✗</span></td>
+              <td>Vendor <span class="col-no">✗</span></td>
+              <td><strong>AI/BI Enabler</strong> & Navigator <span class="col-ok">✓</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Use Cases / Templates -->
+    <section id="usecases">
+      <div class="container">
+        <h2>Plug‑and‑Play Use Cases</h2>
+        <div class="grid cols-3">
+          <div class="card">
+            <h3>Retail</h3>
+            <p class="muted">Demand forecasting, basket analysis, promo ROI, stock‑outs alerts.</p>
+          </div>
+          <div class="card">
+            <h3>Aged‑Care</h3>
+            <p class="muted">Assessment capture, compliance dashboards, care‑plan analytics, AI transcription.</p>
+          </div>
+          <div class="card">
+            <h3>Logistics</h3>
+            <p class="muted">OTIF, route efficiency, driver performance, predictive delays.</p>
+          </div>
+          <div class="card">
+            <h3>Professional Services</h3>
+            <p class="muted">Utilisation, WIP, revenue forecasts, proposal win‑rate, AI assistants.</p>
+          </div>
+          <div class="card">
+            <h3>Manufacturing</h3>
+            <p class="muted">Yield, downtime prediction, quality defects, maintenance schedules.</p>
+          </div>
+          <div class="card">
+            <h3>Finance & Ops</h3>
+            <p class="muted">Cash‑flow forecasts, spend analytics, invoice automation, anomaly alerts.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust & Compliance -->
+    <section id="trust">
+      <div class="container">
+        <h2>Trust, Security & Governance</h2>
+        <div class="grid cols-3">
+          <div class="card"><h3>Data Residency</h3><p class="muted">We keep your data in AU regions unless you decide otherwise.</p></div>
+          <div class="card"><h3>Privacy by Design</h3><p class="muted">Privacy Act 1988 aligned, least‑privilege access, audit logging.</p></div>
+          <div class="card"><h3>Right‑Sized Controls</h3><p class="muted">Lightweight governance that fits SME budgets without slowing delivery.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
     <section id="contact">
-      <h2>Enquire Now</h2>
-      <p>We’d love to hear from you. Fill out the form and we’ll be in touch.</p>
-      <!-- Replace with your actual n8n embed code -->
-      <iframe src="https://your-n8n-instance.com/webhook/form-id" width="100%" height="600" frameborder="0"></iframe>
+      <div class="container">
+        <div class="grid cols-2">
+          <div>
+            <h2>Let’s enable AI/BI — on your terms</h2>
+            <p class="muted">Tell us your top 3 metrics or processes to improve. We’ll propose a 30‑day plan with fixed outcomes.</p>
+            <div style="margin-top:16px">
+              <a class="btn" href="mailto:hello@butterflydata.consulting?subject=Free%20AI-BI%20Assessment&body=Hi%20Butterfly%20team,%0D%0A%0D%0AWe'd%20like%20a%2030-day%20assessment%20for%20our%20SME.%20Our%20top%203%20priorities%20are:%0D1)%20%0D2)%20%0D3)%20%0D%0ARegards,%0D">Email Us</a>
+              <a class="btn secondary" href="#packages">See Packages</a>
+            </div>
+          </div>
+          <div class="card">
+            <form onsubmit="event.preventDefault(); alert('Thanks! We\'ll get back to you within 1 business day.'); this.reset();">
+              <div class="grid" style="gap:12px">
+                <div>
+                  <label>Name</label>
+                  <input type="text" required placeholder="Jane Smith" style="width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(230,240,255,.14);background:#0C1324;color:var(--text)">
+                </div>
+                <div>
+                  <label>Email</label>
+                  <input type="email" required placeholder="jane@company.com" style="width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(230,240,255,.14);background:#0C1324;color:var(--text)">
+                </div>
+                <div>
+                  <label>What do you want to improve?</label>
+                  <textarea required rows="4" placeholder="e.g. automate reporting, build a forecasting model, add an AI assistant for ops" style="width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(230,240,255,.14);background:#0C1324;color:var(--text)"></textarea>
+                </div>
+                <button class="btn" type="submit">Get a 30‑Day Plan</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Butterfly Data Consulting. All rights reserved.</p>
+    <div class="container foot">
+      <div class="logo"><span class="logo-dot"></span><span>Butterfly Data Consulting</span></div>
+      <div>© <span id="y"></span> Butterfly Data Consulting · Sydney, Australia</div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a href="#value">Value</a>
+        <a href="#packages">Packages</a>
+        <a href="#compare">Compare</a>
+        <a href="#usecases">Use Cases</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
   </footer>
-</body>
 
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
