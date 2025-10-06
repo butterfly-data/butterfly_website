@@ -422,7 +422,7 @@
 <body>
   <div class="container">
     <div class="logo-header">
-    <img src="https://raw.githubusercontent.com/butterfly-data/butterfly_website/main/blue%20logo%20trans%20bg%20-%20Copy.png" alt="Butterfly Data Consulting" class="logo-icon">
+      <img src="https://raw.githubusercontent.com/butterfly-data/butterfly_website/main/blue%20logo%20trans%20bg%20-%20Copy.png" alt="Butterfly Data Consulting" class="logo-icon">
       <div class="logo-text">Butterfly Data Consulting</div>
     </div>
 
