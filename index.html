@@ -1,287 +1,563 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Butterfly Data Consulting | AI/BI Enabler for SMEs</title>
-  <meta name="description" content="Sydney-based AI/BI consulting for SMEs — enterprise-grade dashboards, AI copilots, and automation at SME-friendly prices. Data stays in Australia." />
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png" />
-  
-  <!-- Open Graph / Social -->
-  <meta property="og:title" content="Butterfly Data Consulting — AI/BI Enabler for SMEs" />
-  <meta property="og:description" content="Enterprise-grade BI & AI solutions tailored for SMEs. Sydney-based, flexible, SME-friendly pricing." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/butterfly-data/butterfly_website/main/blue%20logo%20trans%20bg%20compressed.png" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Butterfly Data Consulting | Enterprise AI/BI for Australian SMEs</title>
+    <meta name="description" content="Sydney-based AI/BI consulting for SMEs — enterprise-grade dashboards, AI copilots, and automation at SME-friendly prices. Local data residency guaranteed." />
+    
+    <link rel="icon" type="image/png" href="favicon.png" />
+    
+    <meta property="og:title" content="Butterfly Data Consulting — Enterprise AI/BI for Australian SMEs" />
+    <meta property="og:description" content="Enterprise-grade BI & AI solutions tailored for SMEs. Sydney-based, flexible, SME-friendly pricing." />
+    <meta property="og:image" content="https://raw.githubusercontent.com/butterfly-data/butterfly_website/main/blue%20logo%20trans%20bg%20compressed.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- LocalBusiness Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Butterfly Data Consulting",
-    "image": "https://raw.githubusercontent.com/butterfly-data/butterfly_website/main/blue%20logo%20trans%20bg%20compressed.png",
-    "description": "Sydney-based AI/BI consulting for SMEs. We enable enterprise-grade insights without enterprise cost.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Sydney",
-      "addressCountry": "Australia"
-    },
-    "url": "https://butterfly-data.github.io/butterfly_website/"
-  }
-  </script>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #0A0E1A;
-      --bg-elev: #10172A;
-      --text: #E6F0FF;
-      --muted: #9DB3D9;
-      --brand-1: #00E28A;
-      --brand-2: #4D78FF;
-      --accent: #01B4D7;
-      --danger: #FF4D6D;
-      --ok: #3EE07C;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius-lg: 16px;
-      --maxw: 1200px;
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Butterfly Data Consulting",
+      "image": "https://raw.githubusercontent.com/butterfly-data/butterfly_website/main/blue%20logo%20trans%20bg%20compressed.png",
+      "description": "Sydney-based AI/BI consulting for SMEs. We enable enterprise-grade insights without enterprise cost.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sydney",
+        "addressCountry": "Australia"
+      },
+      "url": "https://butterfly-data.github.io/butterfly_website/"
     }
+    </script>
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #0A0E1A, #0E1630);
-      background-attachment: fixed;
-      color: var(--text);
-      line-height: 1.6;
-    }
-    a { color: var(--brand-2); text-decoration: none; }
-    a:hover { opacity: .9; }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+      :root {
+        --bg: #0A0E1A;
+        --bg-elev: #10172A;
+        --text: #E6F0FF;
+        --muted: #B7C9F1;
+        --brand-1: #00E28A;
+        --brand-2: #4D78FF;
+        --accent: #01B4D7;
+        --danger: #FF4D6D;
+        --ok: #3EE07C;
+        --shadow: 0 10px 30px rgba(0,0,0,.35);
+        --radius-lg: 16px;
+        --maxw: 1200px;
+      }
 
-    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body {
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(135deg, #0A0E1A, #0E1630);
+        background-attachment: fixed;
+        color: var(--text);
+        line-height: 1.6;
+      }
+      a { color: var(--brand-2); text-decoration: none; transition: opacity 0.2s; }
+      a:hover:not(.btn) { opacity: .9; }
 
-    /* Header */
-    header {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(10,14,26,.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(230,240,255,.1);
-    }
-    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-    .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; }
-    .logo img { height: 40px; filter: drop-shadow(0 0 8px rgba(77,120,255,.7)); }
+      .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 
-    nav a { margin: 0 12px; font-weight: 500; }
-    .btn {
-      display: inline-flex; align-items: center;
-      padding: 12px 20px; border-radius: 999px;
-      background: linear-gradient(135deg,var(--brand-2),var(--brand-1));
-      color: #041126; font-weight: 700; border: 0;
-      box-shadow: 0 0 12px rgba(77,120,255,.4);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .btn:hover { transform: translateY(-3px); box-shadow: 0 0 18px rgba(0,226,138,.6); }
-    .btn.secondary { background: transparent; border: 1px solid rgba(230,240,255,.2); color: var(--text); }
+      /* Header */
+      header {
+        position: sticky; top: 0; z-index: 50;
+        background: rgba(10,14,26,.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(230,240,255,.1);
+        box-shadow: 0 0 20px rgba(0,0,0,.5);
+      }
+      .nav { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+      .logo a { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 18px; color: var(--text); }
+      .logo img { height: 42px; filter: drop-shadow(0 0 8px rgba(77,120,255,.7)); }
 
-    /* Hero */
-    .hero { padding: 80px 0; }
-    .hero-wrap { display: grid; grid-template-columns: 1.2fr .8fr; gap: 32px; align-items: center; }
-    .glow { background: linear-gradient(135deg,var(--brand-2),var(--brand-1));
-      -webkit-background-clip: text; background-clip: text;
-      color: transparent; text-shadow: 0 0 18px rgba(77,120,255,.5); }
-    h1 { font-size: 50px; font-weight: 900; margin-bottom: 12px; }
-    .sub { font-size: 18px; color: var(--muted); max-width: 720px; margin-bottom: 20px; }
-    .hero-card {
-      background: rgba(15,21,40,.8);
-      border: 1px solid rgba(77,120,255,.4);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      box-shadow: 0 0 25px rgba(77,120,255,.4);
-    }
-    .hero-card ul { list-style: none; padding: 0; margin-top: 12px; }
-    .hero-card li { margin-bottom: 10px; }
+      .nav-links { display: flex; align-items: center; gap: 8px; }
+      .nav-links a { 
+        margin: 0 8px; 
+        font-weight: 500; 
+        padding: 8px 16px;
+        border-radius: 8px;
+        transition: all 0.2s;
+        color: var(--text);
+      }
+      .nav-links a:hover {
+        background: rgba(77,120,255,.1);
+      }
 
-    /* Section cards */
-    .grid { display: grid; gap: 20px; }
-    .grid.cols-3 { grid-template-columns: repeat(3,1fr); }
-    .grid.cols-2 { grid-template-columns: repeat(2,1fr); }
-    .card {
-      background: rgba(16,23,42,.85);
-      border: 1px solid rgba(0,226,138,.3);
-      border-radius: var(--radius-lg);
-      padding: 20px;
-      transition: transform .2s, box-shadow .2s;
-    }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 0 20px rgba(0,226,138,.5);
-    }
-    h2 { font-size: 28px; margin-bottom: 18px; }
+      .btn {
+        display: inline-flex; align-items: center; justify-content: center;
+        padding: 12px 24px; border-radius: 999px;
+        background: linear-gradient(135deg,var(--brand-2),var(--brand-1));
+        color: #041126; font-weight: 700; border: 0;
+        box-shadow: 0 0 12px rgba(77,120,255,.4);
+        transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      .btn:hover { 
+        transform: translateY(-2px); 
+        box-shadow: 0 0 18px rgba(0,226,138,.6);
+        filter: brightness(1.1);
+      }
+      .btn.secondary { 
+        background: transparent; 
+        border: 2px solid rgba(230,240,255,.3); 
+        color: var(--text); 
+        box-shadow: none;
+      }
+      .btn.secondary:hover {
+        border-color: var(--brand-1);
+        background: rgba(0,226,138,.05);
+        transform: translateY(-2px);
+        box-shadow: 0 0 12px rgba(0,226,138,.3);
+      }
 
-    /* Footer */
-    footer {
-      background: #0E1630;
-      padding: 60px 0;
-      color: #B7C9F1;
-    }
-    .foot-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 30px; }
-    .foot-col h3 { margin-bottom: 12px; font-size: 16px; color: #E6F0FF; }
-    .foot-col a { display: block; margin: 6px 0; color: #9DB3D9; }
-    .foot-col a:hover { color: var(--brand-1); }
-    .foot-bottom { margin-top: 30px; text-align: center; font-size: 14px; color: #9DB3D9; }
+      .btn.portal {
+        background: linear-gradient(135deg, #40e0d0, #48d1cc);
+        color: #041126; 
+        font-size: 14px;
+        padding: 10px 20px;
+        border-radius: 999px;
+        box-shadow: 0 0 12px rgba(64,224,208,.4);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .btn.portal:hover {
+        transform: translateY(-2px); 
+        box-shadow: 0 0 24px rgba(64,224,208,1);
+        background: linear-gradient(135deg, #48d1cc, #5fdfcf);
+      }
 
-    /* Responsive */
-    @media(max-width: 960px){
-      .hero-wrap{ grid-template-columns:1fr; }
-      .grid.cols-3, .grid.cols-2 { grid-template-columns:1fr; }
-    }
-  </style>
+      /* Mobile Menu */
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--text);
+        font-size: 24px;
+        cursor: pointer;
+        padding: 8px;
+        transition: transform 0.2s, color 0.2s;
+      }
+      .mobile-menu-btn:hover {
+        transform: scale(1.1);
+        color: var(--brand-1);
+      }
+
+      /* Hero */
+      .hero { padding: 100px 0 80px; }
+      .hero-wrap { display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: center; }
+      .glow { 
+        background: linear-gradient(135deg,var(--brand-2),var(--brand-1));
+        -webkit-background-clip: text; 
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      h1 { font-size: 52px; font-weight: 900; margin-bottom: 16px; line-height: 1.1; }
+      .sub { font-size: 19px; color: var(--muted); max-width: 720px; margin-bottom: 28px; line-height: 1.7; }
+      .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+      .hero-card {
+        background: rgba(15,21,40,.9);
+        border: 1px solid rgba(77,120,255,.4);
+        border-radius: var(--radius-lg);
+        padding: 28px;
+        box-shadow: 0 0 25px rgba(77,120,255,.3);
+      }
+      .hero-card h3 { margin-bottom: 16px; font-size: 20px; }
+      .hero-card ul { list-style: none; padding: 0; }
+      .hero-card li { 
+        margin-bottom: 12px; 
+        padding-left: 28px;
+        position: relative;
+        font-size: 15px;
+        color: var(--muted);
+      }
+      .hero-card li:before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--brand-1);
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      /* Sections */
+      section { padding: 80px 0; }
+      section:nth-child(even) { background: rgba(16,23,42,.3); }
+
+      /* Section cards */
+      .grid { display: grid; gap: 24px; margin-top: 32px; }
+      .grid.cols-3 { grid-template-columns: repeat(3,1fr); }
+      .grid.cols-2 { grid-template-columns: repeat(2,1fr); }
+      .card {
+        background: rgba(16,23,42,.85);
+        border: 1px solid rgba(0,226,138,.25);
+        border-radius: var(--radius-lg);
+        padding: 28px;
+        transition: transform .2s, box-shadow .2s, border-color .2s;
+      }
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 30px rgba(0,226,138,.45);
+        border-color: var(--brand-1);
+        background: #14213d;
+      }
+      .card h3 { font-size: 20px; margin-bottom: 12px; color: var(--brand-1); }
+      .card p { color: var(--muted); line-height: 1.6; }
+
+      h2 { 
+        font-size: 40px; 
+        margin-bottom: 20px; 
+        text-align: center;
+        background: linear-gradient(135deg, #E6F0FF, #9DB3D9);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* Table */
+      table {
+        width: 100%;
+        margin-top: 32px;
+        border-collapse: collapse;
+        background: rgba(16,23,42,.85);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+      }
+      th, td {
+        padding: 16px;
+        text-align: left;
+        border-bottom: 1px solid rgba(230,240,255,.1);
+      }
+      th {
+        background: rgba(77,120,255,.2);
+        font-weight: 700;
+        color: var(--brand-1);
+      }
+      .col-ok { color: var(--ok); font-weight: 700; text-align: center; }
+      .col-fail { color: var(--danger); font-weight: 700; text-align: center; } 
+      .col-neutral { color: var(--muted); font-weight: 700; text-align: center; } 
+      tr:hover { background: rgba(77,120,255,.05); }
+
+      /* Form */
+      form { display: flex; flex-direction: column; gap: 16px; }
+      form label { font-weight: 600; margin-bottom: 4px; display: block; }
+      form input, form textarea {
+        width: 100%;
+        padding: 14px 16px;
+        border: 2px solid rgba(230,240,255,.2);
+        border-radius: 10px;
+        background: rgba(10,14,26,.6);
+        color: var(--text);
+        font-family: inherit;
+        font-size: 15px;
+        transition: all 0.2s;
+      }
+      form input:focus, form textarea:focus {
+        outline: none;
+        border-color: var(--brand-1);
+        background: rgba(10,14,26,.8);
+      }
+      form textarea { resize: vertical; min-height: 100px; }
+
+      /* Footer */
+      footer {
+        background: #0E1630;
+        padding: 60px 0 30px;
+        color: #B7C9F1;
+        border-top: 1px solid rgba(230,240,255,.1);
+      }
+      .foot-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 40px; }
+      .foot-col h3 { margin-bottom: 16px; font-size: 18px; color: #E6F0FF; }
+      .foot-col p { line-height: 1.7; margin-bottom: 12px; }
+      .foot-col a { display: block; margin: 8px 0; color: #9DB3D9; }
+      .foot-col a:hover { color: var(--brand-1); }
+      .foot-bottom { 
+        margin-top: 40px; 
+        padding-top: 30px;
+        border-top: 1px solid rgba(230,240,255,.1);
+        text-align: center; 
+        font-size: 14px; 
+        color: #9DB3D9; 
+      }
+
+      /* Responsive */
+      @media(max-width: 960px){
+        section { padding: 60px 0; }
+        .hero-wrap { grid-template-columns: 1fr; }
+        .grid.cols-3, .grid.cols-2 { grid-template-columns: 1fr; }
+        .foot-grid { grid-template-columns: 1fr; }
+        
+        .nav-links { display: none; }
+        .mobile-menu-btn { display: block; }
+        
+        .nav-links.active {
+          display: flex;
+          position: absolute;
+          top: 70px;
+          left: 0;
+          right: 0;
+          background: rgba(10,14,26,.98);
+          flex-direction: column;
+          padding: 20px;
+          border-bottom: 1px solid rgba(230,240,255,.1);
+          box-shadow: 0 10px 30px rgba(0,0,0,.5);
+        }
+        
+        .nav-links.active a {
+          width: 100%;
+          text-align: center;
+          padding: 12px;
+        }
+
+        h1 { font-size: 44px; }
+        h2 { font-size: 32px; }
+        
+        table { font-size: 14px; }
+        th, td { padding: 12px 8px; }
+      }
+
+      @media(max-width: 640px) {
+        .hero-btns { flex-direction: column; }
+        .hero-btns .btn { width: 100%; }
+      }
+    </style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <div class="container nav">
-      <div class="logo">
-        <img src="https://raw.githubusercontent.com/butterfly-data/butterfly_website/main/blue%20logo%20trans%20bg%20compressed.png" alt="Butterfly Logo">
-        <span>Butterfly Data Consulting</span>
-      </div>
-      <nav>
-        <a href="#value">Value</a>
-        <a href="#packages">Packages</a>
-        <a href="#compare">Compare</a>
-        <a href="#usecases">Use Cases</a>
-        <a href="#contact" class="btn">Book a Call</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container hero-wrap">
-      <div>
-        <h1><span class="glow">The Butterfly Effect:</span> Enterprise AI & BI for Australian SMEs</h1>
-        <p class="sub">Enterprise-grade dashboards, automation, and AI copilots — without the enterprise cost. Flexible, local, and outcome-driven.</p>
-        <div>
-          <a class="btn" href="#contact">Start Free Assessment</a>
-          <a class="btn secondary" href="#compare">See Why We Beat Outsourcing</a>
+    <header>
+      <div class="container nav">
+        <div class="logo">
+          <a href="/">
+            <img src="https://raw.githubusercontent.com/butterfly-data/butterfly_website/main/blue%20logo%20trans%20bg%20compressed.png" alt="Butterfly Logo">
+            <span>Butterfly Data Consulting</span>
+          </a>
+        </div>
+        <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+        <div class="nav-links" id="navLinks">
+          <a href="#value">Value</a>
+          <a href="#packages">Packages</a>
+          <a href="#compare">Compare</a>
+          <a href="#usecases">Use Cases</a>
+          <a href="client-upload.html" class="btn portal">Client Portal</a>
+          <a href="#contact" class="btn">Book a Call</a>
         </div>
       </div>
-      <div class="hero-card">
-        <h3>In Your First 30 Days:</h3>
-        <ul>
-          <li>✔ Live KPI dashboard</li>
-          <li>✔ Automated data pipeline</li>
-          <li>✔ Quick-win AI (forecasting/chatbot)</li>
-          <li>✔ AU-only data compliance review</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- Value -->
-  <section id="value">
-    <div class="container">
-      <h2>Why Choose Butterfly?</h2>
-      <div class="grid cols-3">
-        <div class="card"><h3>Outcome-Driven</h3><p>We deliver measurable improvements, not just dashboards.</p></div>
-        <div class="card"><h3>Local & Compliant</h3><p>Sydney-based, AU data residency, Privacy Act aligned.</p></div>
-        <div class="card"><h3>Flexible</h3><p>Scale services up or down without in-house overhead.</p></div>
+    <section class="hero">
+      <div class="container hero-wrap">
+        <div>
+          <h1>Enterprise AI & BI for <span class="glow">Australian SMEs</span></h1>
+          <p class="sub">Harness The Butterfly Effect: Enterprise-grade dashboards, automation, and AI copilots — without the enterprise cost. Flexible, local, and outcome-driven.</p>
+          <div class="hero-btns">
+            <a class="btn" href="#contact">Start Your Free Assessment</a>
+            <a class="btn secondary" href="#compare">See Why We Beat Outsourcing</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h3>In Your First 30 Days:</h3>
+          <ul>
+            <li>Live KPI dashboard</li>
+            <li>Automated data pipeline</li>
+            <li>Quick-win AI (forecasting/chatbot)</li>
+            <li>AU-only data compliance review</li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Packages -->
-  <section id="packages">
-    <div class="container">
-      <h2>Packages — Simple & Transparent</h2>
-      <div class="grid cols-3">
-        <div class="card"><h3>Starter</h3><p>AU$2–4k / month</p><p>KPI dashboards, refresh automation, alerts.</p></div>
-        <div class="card"><h3>Growth</h3><p>AU$5–10k / month</p><p>Predictive models, AI copilots, workflow automation.</p></div>
-        <div class="card"><h3>Scale</h3><p>AU$15k+ / month</p><p>Bespoke AI, governance uplift, executive training.</p></div>
+    <section id="value">
+      <div class="container">
+        <h2>Why Choose Butterfly?</h2>
+        <div class="grid cols-3">
+          <div class="card">
+            <h3>Outcome-Driven</h3>
+            <p>We deliver measurable improvements, not just dashboards. Every engagement is tied to concrete business outcomes.</p>
+          </div>
+          <div class="card">
+            <h3>Local & Compliant</h3>
+            <p>Sydney-based, AU data residency, Privacy Act aligned. Your data never leaves Australia.</p>
+          </div>
+          <div class="card">
+            <h3>Flexible</h3>
+            <p>Scale services up or down without in-house overhead. Pay for what you need, when you need it.</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Compare -->
-  <section id="compare">
-    <div class="container">
-      <h2>Why We Beat Overseas Outsourcing</h2>
-      <table>
-        <thead><tr><th>Criteria</th><th>Outsourcing</th><th>Big 4</th><th>Butterfly</th></tr></thead>
-        <tbody>
-          <tr><td>Price Predictability</td><td>✗</td><td>✗</td><td class="col-ok">✓</td></tr>
-          <tr><td>Speed & Timezone</td><td>✗</td><td>✗</td><td class="col-ok">✓</td></tr>
-          <tr><td>Data Residency</td><td>✗</td><td>~</td><td class="col-ok">✓</td></tr>
-          <tr><td>AI + BI Integration</td><td>✗</td><td>Premium</td><td class="col-ok">✓</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+    <section id="packages">
+      <div class="container">
+        <h2>Packages — Simple & Transparent</h2>
+        <div class="grid cols-3">
+          <div class="card">
+            <h3>Starter</h3>
+            <p style="font-size: 24px; font-weight: 800; color: var(--brand-1); margin: 12px 0;">AU$2–4k / month</p>
+            <p>KPI dashboards, refresh automation, alerts. Perfect for businesses starting their data journey.</p>
+          </div>
+          <div class="card">
+            <h3>Growth</h3>
+            <p style="font-size: 24px; font-weight: 800; color: var(--brand-1); margin: 12px 0;">AU$5–10k / month</p>
+            <p>Predictive models, AI copilots, workflow automation. Scale your insights and automation.</p>
+          </div>
+          <div class="card">
+            <h3>Scale</h3>
+            <p style="font-size: 24px; font-weight: 800; color: var(--brand-1); margin: 12px 0;">AU$15k+ / month</p>
+            <p>Bespoke AI, governance uplift, executive training. Enterprise-grade solutions for growing SMEs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Use Cases -->
-  <section id="usecases">
-    <div class="container">
-      <h2>Plug & Play Use Cases</h2>
-      <div class="grid cols-3">
-        <div class="card"><h3>Retail</h3><p>Demand forecasting, promo ROI.</p></div>
-        <div class="card"><h3>Aged-Care</h3><p>Compliance dashboards, AI transcription.</p></div>
-        <div class="card"><h3>Logistics</h3><p>OTIF, route efficiency, predictive delays.</p></div>
-        <div class="card"><h3>Services</h3><p>Utilisation, forecasts, AI assistants.</p></div>
-        <div class="card"><h3>Manufacturing</h3><p>Yield, downtime prediction.</p></div>
-        <div class="card"><h3>Finance</h3><p>Cash-flow, anomaly alerts.</p></div>
+    <section id="compare">
+      <div class="container">
+        <h2>Why We Beat Overseas Outsourcing</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Criteria</th>
+              <th>Outsourcing</th>
+              <th>Big 4</th>
+              <th>Butterfly</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Price Predictability</td>
+              <td class="col-fail">✗</td>
+              <td class="col-fail">✗</td>
+              <td class="col-ok">✓</td>
+            </tr>
+            <tr>
+              <td>Speed & Timezone</td>
+              <td class="col-fail">✗</td>
+              <td class="col-fail">✗</td>
+              <td class="col-ok">✓</td>
+            </tr>
+            <tr>
+              <td>Data Residency</td>
+              <td class="col-fail">✗</td>
+              <td class="col-neutral">~</td>
+              <td class="col-ok">✓</td>
+            </tr>
+            <tr>
+              <td>AI + BI Integration</td>
+              <td class="col-fail">✗</td>
+              <td class="col-neutral">Premium</td>
+              <td class="col-ok">✓</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <div class="container grid cols-2">
-      <div>
-        <h2>Let’s Enable AI/BI on Your Terms</h2>
-        <p class="muted">Tell us your top 3 priorities. We'll send a 30-day plan with fixed outcomes.</p>
-        <a class="btn" href="mailto:hello@butterflydata.consulting">Email Us</a>
+    <section id="usecases">
+      <div class="container">
+        <h2>Plug & Play Use Cases</h2>
+        <div class="grid cols-3">
+          <div class="card">
+            <h3>Retail</h3>
+            <p>Demand forecasting, promo ROI, inventory optimization.</p>
+          </div>
+          <div class="card">
+            <h3>Aged-Care</h3>
+            <p>Compliance dashboards, AI transcription, staff rostering.</p>
+          </div>
+          <div class="card">
+            <h3>Logistics</h3>
+            <p>OTIF tracking, route efficiency, predictive delays.</p>
+          </div>
+          <div class="card">
+            <h3>Services</h3>
+            <p>Utilisation metrics, revenue forecasts, AI assistants.</p>
+          </div>
+          <div class="card">
+            <h3>Manufacturing</h3>
+            <p>Yield analysis, downtime prediction, quality control.</p>
+          </div>
+          <div class="card">
+            <h3>Finance</h3>
+            <p>Cash-flow forecasting, anomaly alerts, risk modeling.</p>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <form onsubmit="event.preventDefault(); alert('Thanks! We will respond within 1 business day.'); this.reset();">
-          <label>Name</label><input type="text" required>
-          <label>Email</label><input type="email" required>
-          <label>What do you want to improve?</label><textarea rows="3" required></textarea>
-          <button class="btn" type="submit">Get 30-Day Plan</button>
-        </form>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container foot-grid">
-      <div class="foot-col">
-        <h3>About</h3>
-        <p>Butterfly Data Consulting helps SMEs harness enterprise-grade BI & AI — without enterprise budgets.</p>
+    <section id="contact">
+      <div class="container">
+        <h2>Let's Enable AI/BI on Your Terms</h2>
+        <div class="grid cols-2" style="margin-top: 40px;">
+          <div>
+            <p class="sub" style="margin-bottom: 24px;">Tell us your top 3 priorities. We'll send a 30-day plan with fixed outcomes.</p>
+            <p style="color: var(--muted); margin-bottom: 16px;">📧 Email: hello@butterflydata.consulting</p>
+            <p style="color: var(--muted); margin-bottom: 24px;">📍 Based in Sydney, Australia</p>
+            <a class="btn secondary" href="mailto:hello@butterflydata.consulting">Email Us Directly</a>
+          </div>
+          <div class="card">
+            <form onsubmit="event.preventDefault(); alert('Thanks! We will respond within 1 business day.'); this.reset();">
+              <div>
+                <label>Name</label>
+                <input type="text" placeholder="Your name" required>
+              </div>
+              <div>
+                <label>Email</label>
+                <input type="email" placeholder="your@email.com" required>
+              </div>
+              <div>
+                <label>What do you want to improve?</label>
+                <textarea rows="4" placeholder="Tell us about your challenges and goals..." required></textarea>
+              </div>
+              <button class="btn" type="submit">Get My Free 30-Day Plan</button>
+            </form>
+          </div>
+        </div>
       </div>
-      <div class="foot-col">
-        <h3>Quick Links</h3>
-        <a href="#value">Value</a>
-        <a href="#packages">Packages</a>
-        <a href="#compare">Compare</a>
-        <a href="#usecases">Use Cases</a>
-      </div>
-      <div class="foot-col">
-        <h3>Contact</h3>
-        <p>Email: hello@butterflydata.consulting</p>
-        <a class="btn" href="#contact">Book a Call</a>
-      </div>
-    </div>
-    <div class="foot-bottom">© <span id="y"></span> Butterfly Data Consulting · Sydney, Australia</div>
-  </footer>
+    </section>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+    <footer>
+      <div class="container">
+        <div class="foot-grid">
+          <div class="foot-col">
+            <h3>About</h3>
+            <p>Butterfly Data Consulting helps SMEs harness enterprise-grade BI & AI — without enterprise budgets. We're based in Sydney and focused on delivering measurable outcomes.</p>
+          </div>
+          <div class="foot-col">
+            <h3>Quick Links</h3>
+            <a href="#value">Value</a>
+            <a href="#packages">Packages</a>
+            <a href="#compare">Compare</a>
+            <a href="#usecases">Use Cases</a>
+            <a href="client-upload.html">Client Portal</a>
+          </div>
+          <div class="foot-col">
+            <h3>Contact</h3>
+            <p>Email: hello@butterflydata.consulting</p>
+            <p>Location: Sydney, Australia</p>
+            <a class="btn" href="#contact" style="margin-top: 16px;">Book a Call</a>
+          </div>
+        </div>
+        <div class="foot-bottom">© <span id="y"></span> Butterfly Data Consulting · Sydney, Australia · All Rights Reserved</div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('y').textContent = new Date().getFullYear();
+      
+      function toggleMenu() {
+        const nav = document.getElementById('navLinks');
+        nav.classList.toggle('active');
+      }
+      
+      // Close mobile menu when clicking a link
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          document.getElementById('navLinks').classList.remove('active');
+        });
+      });
+    </script>
 </body>
 </html>
