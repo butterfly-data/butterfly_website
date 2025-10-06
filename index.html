@@ -69,22 +69,23 @@
         right: 30px;
         width: 70px;
         height: 70px;
-        background: linear-gradient(135deg, #3B82F6, #06B6D4, #14B8A6, #10B981);
-        border: 2px solid rgba(6, 182, 212, 0.5);
+        background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+        border: 2px solid rgba(77, 120, 255, 0.6);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 4px 24px rgba(6, 182, 212, 0.7), 0 0 40px rgba(20, 184, 166, 0.4);
+        box-shadow: 0 4px 24px rgba(255, 107, 107, 0.7), 0 0 40px rgba(255, 142, 83, 0.4), 0 0 0 3px rgba(0, 226, 138, 0.3);
         cursor: pointer;
         z-index: 1000;
-        transition: transform 0.3s, box-shadow 0.3s;
+        transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
         animation: floatBob 3s ease-in-out infinite;
       }
       
       .floating-chatbot:hover {
         transform: scale(1.15) translateY(-5px);
-        box-shadow: 0 8px 35px rgba(6, 182, 212, 1), 0 0 50px rgba(16, 185, 129, 0.6);
+        box-shadow: 0 8px 35px rgba(255, 107, 107, 1), 0 0 50px rgba(255, 142, 83, 0.7), 0 0 0 3px rgba(0, 226, 138, 0.6);
+        border-color: rgba(77, 120, 255, 0.9);
       }
       
       .floating-chatbot img {
@@ -92,7 +93,6 @@
         max-height: 50px;
         width: auto;
         height: auto;
-        filter: brightness(0) invert(1);
       }
       
       @keyframes floatBob {
@@ -121,6 +121,44 @@
           transform: scale(1.5);
           opacity: 0;
         }
+      }
+      
+      /* Collapsible philosophy section */
+      .philosophy-toggle {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 16px;
+        transition: all 0.3s;
+        user-select: none;
+      }
+      
+      .philosophy-toggle:hover {
+        color: var(--brand-1);
+      }
+      
+      .philosophy-toggle .arrow {
+        transition: transform 0.3s;
+        font-size: 24px;
+        color: var(--brand-1);
+      }
+      
+      .philosophy-toggle.active .arrow {
+        transform: rotate(180deg);
+      }
+      
+      .philosophy-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-out, opacity 0.3s ease-out;
+        opacity: 0;
+      }
+      
+      .philosophy-content.active {
+        max-height: 1000px;
+        opacity: 1;
       }
       
       /* Ensure content stays above background */
@@ -424,7 +462,7 @@
       <div class="container hero-wrap">
         <div>
           <h1>Enterprise AI & BI for <span class="glow">Australian SMEs</span></h1>
-          <p class="sub">Harness The Butterfly Effect: Enterprise-grade dashboards, automation, and AI copilots — without the enterprise cost. Flexible, local, and outcome-driven.</p>
+          <p class="sub">Fortune 500 capabilities at SME pricing. Enterprise-grade dashboards, automation, and AI copilots — secure, compliant, ISO-certified.</p>
           <div class="hero-btns">
             <a class="btn" href="#contact">Start Your Free Assessment</a>
             <a class="btn secondary" href="#compare">See Why We Beat Outsourcing</a>
@@ -436,8 +474,34 @@
             <li>Live KPI dashboard</li>
             <li>Automated data pipeline</li>
             <li>Quick-win AI (forecasting/chatbot)</li>
-            <li>AU-only data compliance review</li>
+            <li>ISO-aligned security audit & compliance review</li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 40px 0; background: linear-gradient(135deg, rgba(77,120,255,0.08), rgba(0,226,138,0.08));">
+      <div class="container">
+        <div style="max-width: 900px; margin: 0 auto;">
+          <div class="philosophy-toggle" id="philosophyToggle" onclick="togglePhilosophy()">
+            <p style="font-size: 13px; color: var(--brand-1); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin: 0;">Our Philosophy</p>
+            <span class="arrow">▼</span>
+          </div>
+          
+          <div class="philosophy-content" id="philosophyContent">
+            <div style="text-align: center; padding: 20px 0;">
+              <h2 style="font-size: 36px; margin-bottom: 24px;">The Butterfly Effect in Business</h2>
+              <p style="font-size: 19px; color: #E6F0FF; line-height: 1.8; margin-bottom: 24px;">
+                Most consultancies treat data as a technical problem. We see it as the catalyst for exponential change. A single automated workflow doesn't just save time—it frees your team to think strategically. One predictive model doesn't just forecast—it shifts how you make decisions. The right AI copilot doesn't just answer questions—it transforms how your customers experience your brand.
+              </p>
+              <p style="font-size: 19px; color: #E6F0FF; line-height: 1.8; margin-bottom: 24px;">
+                We're not here to build dashboards. We're here to trigger the chain reaction that transforms your business from data-poor to data-driven, from reactive to predictive, from ordinary to exceptional.
+              </p>
+              <p style="font-size: 22px; color: var(--brand-1); font-weight: 700; letter-spacing: 0.5px; margin-top: 32px;">
+                Small data changes → Exponential business impact
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -447,16 +511,16 @@
         <h2>Why Choose Butterfly?</h2>
         <div class="grid cols-3">
           <div class="card">
-            <h3>Outcome-Driven</h3>
-            <p>We deliver measurable improvements, not just dashboards. Every engagement is tied to concrete business outcomes.</p>
+            <h3>Enterprise-Grade, SME Pricing</h3>
+            <p>Access the same AI/BI infrastructure used by Fortune 500 companies — without the enterprise price tag. Big-company capabilities designed for your budget.</p>
           </div>
           <div class="card">
-            <h3>Local & Compliant</h3>
-            <p>Sydney-based, AU data residency, Privacy Act aligned. Your data never leaves Australia.</p>
+            <h3>ISO-Certified Security</h3>
+            <p>Your data protected by ISO 27001-aligned security protocols. AU data residency, Privacy Act compliance, and bank-grade encryption as standard.</p>
           </div>
           <div class="card">
-            <h3>Flexible</h3>
-            <p>Scale services up or down without in-house overhead. Pay for what you need, when you need it.</p>
+            <h3>Flexible & Scalable</h3>
+            <p>Scale services up or down without in-house overhead. Enterprise flexibility without enterprise lock-in contracts.</p>
           </div>
         </div>
       </div>
@@ -529,7 +593,25 @@
 
     <section id="usecases">
       <div class="container">
-        <h2>Plug & Play Use Cases</h2>
+        <h2>Enterprise Security, SME-Friendly Implementation</h2>
+        <p style="text-align: center; color: var(--muted); max-width: 800px; margin: 0 auto 40px;">Your data is protected by the same security standards used by Fortune 500 companies — ISO 27001-aligned protocols, Australian data residency, and comprehensive compliance frameworks.</p>
+        
+        <div class="grid cols-3" style="margin-bottom: 60px;">
+          <div class="card">
+            <h3>🔒 Bank-Grade Security</h3>
+            <p>ISO 27001-aligned protocols, end-to-end encryption, and multi-factor authentication across all systems.</p>
+          </div>
+          <div class="card">
+            <h3>🇦🇺 Australian Data Sovereignty</h3>
+            <p>Your data never leaves Australia. Full Privacy Act compliance with AU-only data residency guaranteed.</p>
+          </div>
+          <div class="card">
+            <h3>✓ Compliance-Ready</h3>
+            <p>Built-in compliance frameworks for NDIS, aged care, financial services, and health sectors.</p>
+          </div>
+        </div>
+
+        <h2 style="margin-top: 40px;">Plug & Play Use Cases</h2>
         <div class="grid cols-3">
           <div class="card">
             <h3>Retail</h3>
@@ -703,6 +785,15 @@
           submitBtn.textContent = 'Get My Free 30-Day Plan';
           submitBtn.disabled = false;
         }
+      }
+
+      // Toggle philosophy section
+      function togglePhilosophy() {
+        const content = document.getElementById('philosophyContent');
+        const toggle = document.getElementById('philosophyToggle');
+        
+        content.classList.toggle('active');
+        toggle.classList.toggle('active');
       }
     </script>
 </body>
