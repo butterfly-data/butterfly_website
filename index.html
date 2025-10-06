@@ -167,7 +167,8 @@
         padding: 28px;
         box-shadow: 0 0 25px rgba(77,120,255,.3);
       }
-      .hero-card h3 { margin-bottom: 16px; font-size: 20px; }
+      .hero-card h3 { margin-bottom: 16px; font-size: 20px; display: flex; align-items: center; gap: 10px; }
+      .hero-card h3 img { height: 24px; filter: drop-shadow(0 0 6px rgba(0,226,138,.6)); }
       .hero-card ul { list-style: none; padding: 0; }
       .hero-card li { 
         margin-bottom: 12px; 
@@ -273,6 +274,8 @@
       }
       .foot-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 40px; }
       .foot-col h3 { margin-bottom: 16px; font-size: 18px; color: #E6F0FF; }
+      .foot-col.about-col h3 { display: flex; align-items: center; gap: 10px; }
+      .foot-col.about-col h3 img { height: 28px; filter: drop-shadow(0 0 6px rgba(77,120,255,.5)); }
       .foot-col p { line-height: 1.7; margin-bottom: 12px; }
       .foot-col a { display: block; margin: 8px 0; color: #9DB3D9; }
       .foot-col a:hover { color: var(--brand-1); }
@@ -359,7 +362,7 @@
           </div>
         </div>
         <div class="hero-card">
-          <h3>In Your First 30 Days:</h3>
+          <h3><img src="https://raw.githubusercontent.com/butterfly-data/butterfly_website/main/blue%20logo%20trans%20bg%20-%20Copy.png" alt="Butterfly">In Your First 30 Days:</h3>
           <ul>
             <li>Live KPI dashboard</li>
             <li>Automated data pipeline</li>
@@ -496,22 +499,47 @@
             <p style="color: var(--muted); margin-bottom: 16px;">📧 Email: hello@butterflydata.consulting</p>
             <p style="color: var(--muted); margin-bottom: 24px;">📍 Based in Sydney, Australia</p>
             <a class="btn secondary" href="mailto:hello@butterflydata.consulting">Email Us Directly</a>
+            
+            <div style="margin-top: 32px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(0,226,138,.25); box-shadow: 0 4px 20px rgba(0,0,0,.3); position: relative;">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106494.8876845857!2d151.1042713!3d-33.8473567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b129838f39a743f%3A0x3017d681632a850!2sSydney%20NSW%2C%20Australia!5e0!3m2!1sen!2s!4v1234567890"
+                width="100%" 
+                height="400" 
+                style="border:0; filter: invert(90%) hue-rotate(180deg) brightness(0.95) contrast(0.9);" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Butterfly Data Consulting Location - Sydney, Australia">
+              </iframe>
+            </div>
           </div>
           <div class="card">
-            <form onsubmit="event.preventDefault(); alert('Thanks! We will respond within 1 business day.'); this.reset();">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+              <img src="https://raw.githubusercontent.com/butterfly-data/butterfly_website/main/blue%20logo%20trans%20bg%20-%20Copy.png" alt="Butterfly" style="height: 32px; filter: drop-shadow(0 0 8px rgba(77,120,255,.6));">
+              <h3 style="margin: 0; color: var(--text); font-size: 20px;">Get Started</h3>
+            </div>
+            <form id="contactForm" onsubmit="handleSubmit(event)">
               <div>
-                <label>Name</label>
-                <input type="text" placeholder="Your name" required>
+                <label>Full Name *</label>
+                <input type="text" id="fullName" name="fullName" placeholder="John Smith" required>
               </div>
               <div>
-                <label>Email</label>
-                <input type="email" placeholder="your@email.com" required>
+                <label>Email Address *</label>
+                <input type="email" id="email" name="email" placeholder="john@company.com" required>
               </div>
               <div>
-                <label>What do you want to improve?</label>
-                <textarea rows="4" placeholder="Tell us about your challenges and goals..." required></textarea>
+                <label>Phone Number *</label>
+                <input type="tel" id="phone" name="phone" placeholder="+61 4XX XXX XXX" required pattern="[0-9+\s\-()]+">
               </div>
-              <button class="btn" type="submit">Get My Free 30-Day Plan</button>
+              <div>
+                <label>Company Name *</label>
+                <input type="text" id="company" name="company" placeholder="Your Company Pty Ltd" required>
+              </div>
+              <div>
+                <label>What do you want to improve? *</label>
+                <textarea rows="4" id="enquiry" name="enquiry" placeholder="Tell us about your challenges and goals..." required></textarea>
+              </div>
+              <button class="btn" type="submit" id="submitBtn">Get My Free 30-Day Plan</button>
             </form>
           </div>
         </div>
@@ -521,8 +549,8 @@
     <footer>
       <div class="container">
         <div class="foot-grid">
-          <div class="foot-col">
-            <h3>About</h3>
+          <div class="foot-col about-col">
+            <h3><img src="https://raw.githubusercontent.com/butterfly-data/butterfly_website/main/blue%20logo%20trans%20bg%20-%20Copy.png" alt="Butterfly">About</h3>
             <p>Butterfly Data Consulting helps SMEs harness enterprise-grade BI & AI — without enterprise budgets. We're based in Sydney and focused on delivering measurable outcomes.</p>
           </div>
           <div class="foot-col">
@@ -558,6 +586,50 @@
           document.getElementById('navLinks').classList.remove('active');
         });
       });
+
+      // Azure Function form submission
+      async function handleSubmit(event) {
+        event.preventDefault();
+        
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
+        const formData = {
+          fullName: document.getElementById('fullName').value,
+          email: document.getElementById('email').value,
+          phone: document.getElementById('phone').value,
+          company: document.getElementById('company').value,
+          enquiry: document.getElementById('enquiry').value,
+          submittedAt: new Date().toISOString()
+        };
+
+        try {
+          // Replace with your Azure Function URL
+          const AZURE_FUNCTION_URL = 'https://YOUR_FUNCTION_APP.azurewebsites.net/api/submitLead';
+
+          const response = await fetch(AZURE_FUNCTION_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+          });
+
+          if (response.ok) {
+            alert('Thanks! We will respond within 1 business day.');
+            document.getElementById('contactForm').reset();
+          } else {
+            throw new Error('Submission failed');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('There was an error submitting your form. Please email us directly at hello@butterflydata.consulting');
+        } finally {
+          submitBtn.textContent = 'Get My Free 30-Day Plan';
+          submitBtn.disabled = false;
+        }
+      }
     </script>
 </body>
 </html>
